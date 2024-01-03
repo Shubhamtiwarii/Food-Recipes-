@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row mt-5">
+
+        <div class="card mx-auto" id='{{product.id}}'>
+            <img class="card-img-top " src="{{product.image.url}}"  height="500"  alt="Card image cap">
+            <div class="card-body">
+                <p class="card-title font-weight-bold" style="font-size:40px">{{product.name}}</p>
+                <p class="text-center">{{product.description}}</p>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="mx-4 ">
+            
+            </div>
+        </div>
+    </div>
+    
+</div>  
+{% endblock content %}

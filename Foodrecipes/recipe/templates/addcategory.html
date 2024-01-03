@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row mt-5">
+        
+       {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == "error" %}
+                    <div class="alert alert-danger" role="alert">
+                    {{message}}
+                    </div>
+                {% else %}
+                <div class="alert alert-success" role="alert">
+                    {{message}}
+                  </div>
+                {% endif %}
+            {% endfor %}
+       {% endif %}
+                </div>
+    <div class="row">
+        <div class="col-md-6">
+        <form method="post" >
+        {% csrf_token %}
+            <label for="category" >Category:</label><br>
+            <input type="text" id="category" name="category" class="form-control" required><br>
+            <input type="submit" value="Submit" class="btn btn-block btn-danger">
+        </form>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Category</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for category in category %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{category.name}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+
+
+{% endblock  %}
